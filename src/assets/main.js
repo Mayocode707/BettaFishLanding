@@ -26,7 +26,7 @@ async function fetchData(urlApi) {
                     <img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
                 </div>
             <div class="mt-4 flex justify-between">
-                <h3 class="text-sm text-gray-700">
+                <h3 class="text-sm text-gray-200">
                 <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank"><span aria-hidden="true" class="absolute inset-0"></span></a>
                 ${video.snippet.title}
                 </h3>
