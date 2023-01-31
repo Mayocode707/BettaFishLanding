@@ -1,7 +1,10 @@
+/**Se separa la URL de la API para tener un mejor manejo del código. */
 const API = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCuak-ljvKqWzwwbXXHXvVsA&part=snippet%2Cid&order=date&maxResults=9';
 
-const content = null || document.getElementById('content');
+const content = null || document.getElementById('content');//Se hace referencia a la etique a la uqe se le van a enviar los datos de la API
 
+
+//Parte del código de la API de youtube
 const options = {
 	method: 'GET',
 	headers: {
@@ -10,12 +13,19 @@ const options = {
 	}
 };
 
+//FUnción asincrona para realizar la consulta a la API
+
 async function fetchData(urlApi) {
     const response = await fetch(urlApi, options);
     const data = await response.json();
     return data;
 }
 
+
+/**Función anonima la cual va a enviar los datos obtenidos de la API y organizados en HTML para 
+ * poder visualizarlos correctamente en la página principal. Las propiedades mostradas son las que 
+ * pertenecen a la API de youtube y estan en la documentación de la misma.
+ */
 (async () => {
     try {
         const videos = await fetchData(API);
@@ -34,7 +44,7 @@ async function fetchData(urlApi) {
             </div>
         `).slice(0,4).join('')}
             `;
-            content.innerHTML = view; 
+            content.innerHTML = view; //Se envía la consulta organizada con HTML a la página principal.
     } catch (error){
         console.log(error);
 
